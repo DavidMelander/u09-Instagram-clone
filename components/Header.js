@@ -12,7 +12,7 @@ import { HomeIcon } from '@heroicons/react/solid';
 
 function Header() {
   return (
-    <div>
+    <div className='shadow-md border-b bg-white sticky top-0 z-50'>
         <div className='flex justify-between max-w-6xl mx-5 lg:mx-auto'>
         {/* Left */}
             <div className='relative hidden lg:inline-grid w-24 cursor-pointer'>
@@ -40,7 +40,15 @@ function Header() {
             <HomeIcon className='navBtn' />
             <MenuIcon className='h-6 md:hidden cursor-pointer' />
 
-            <PaperAirplaneIcon className='navBtn'/>
+            <div className='relative navBtn'>
+                <PaperAirplaneIcon className='navBtn rotate-45'/>
+                <div className='absolute -top-1 -right-2 text-xs w-5 h-5 bg-red-500 rounded-full flex items-center justify-center text-white'>3</div>
+            </div>
+            <PlusCircleIcon className='navBtn'/>
+            <UserGroupIcon className='navBtn' />
+            <HeartIcon className='navBtn' />
+
+            <img src='http://cdn1.shl.se/photos/14/01/52e6030706f05d4f2800fe5dced8cba8/thumb_0.jpg' alt='profile pic' className='h-10 rounded-full cursor-pointer'/>
         </div>
 
         </div>
