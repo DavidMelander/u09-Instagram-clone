@@ -22,7 +22,7 @@ function Stories() {
     rounded-sm overflow-x-scroll scrollbar-thin scrollbar-thumb-black'>
       {suggestions.map(profile => (
         <Story key={profile.id} 
-        img={'https://media.gq.com/photos/599db9f8021601733ff6a5f6/master/pass/the-joker-movie.jpg'} 
+        img='https://s.yimg.com/ny/api/res/1.2/vkZ20B2QZ6guE8CnXVcZSg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTQ0NA--/https://s.yimg.com/uu/api/res/1.2/XamaQNMsNc5X.PufnA4acw--~B/aD01MDQ7dz03MjY7YXBwaWQ9eXRhY2h5b24-/http://media.zenfs.com/en-US/homerun/hello_giggles_454/49a08573f6a8083dc13fe9af47fcec8f' 
         username={profile.username} />
       ))}
       {/* Story */}
