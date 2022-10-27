@@ -1,36 +1,35 @@
+import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
 import React from 'react'
+import { db } from '../firebase';
 import Post from './Post'
-
-const posts = [
-    {
-        id: '123',
-        username: "Michael Scott",
-        userImg: 'http://cdn1.shl.se/photos/14/01/52e6030706f05d4f2800fe5dced8cba8/thumb_0.jpg',
-        img: 'https://i0.wp.com/cebolaverde.com.br/wp-content/uploads/2022/02/michael-scott.jpg?fit=1200%2C675&ssl=1',
-        caption: 'NOOOOOOOOOOOOOOOOOOOO!!!!!!!!!!!!!!!!!'
-    },
-    {
-        id: '123',
-        username: "Michael Scott",
-        userImg: 'http://cdn1.shl.se/photos/14/01/52e6030706f05d4f2800fe5dced8cba8/thumb_0.jpg',
-        img: 'https://i0.wp.com/cebolaverde.com.br/wp-content/uploads/2022/02/michael-scott.jpg?fit=1200%2C675&ssl=1',
-        caption: 'NOOOOOOOOOOOOOOOOOOOO!!!!!!!!!!!!!!!!!'
-    },
-];
+import { useState, useEffect } from 'react'
 
 function Posts() {
+    const [posts, setPosts] = useState([]);
+
+    useEffect(
+        () => 
+        onSnapshot(
+        query(collection(db, "posts"), orderBy("timestamp", "desc")),
+        (snapshot) => {
+            setPosts(snapshot.docs);
+        }
+      ),
+    [db]
+    );
+
   return (
     <div>
-        {posts.map(post => (
+         {posts.map(post => (
             <Post key=
             {post.id}
             id={post.id}
-            username={post.username}
-            userImg={post.userImg}
-            img={post.img}
-            caption={post.caption}
+            username={post.data().username}
+            userImg={post.data().profileImg}
+            img={post.data().image}
+            caption={post.data().caption}
             />
-        ))}
+        ))} 
     </div>
   )
 }
