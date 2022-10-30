@@ -18,6 +18,7 @@ function Posts() {
     [db]
     );
 
+
   return (
     <div>
          {posts.map(post => (
