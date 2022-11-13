@@ -12,7 +12,7 @@ export const authOptions = {
     // ...add more providers here
   ],
 
-  secret: "fbdd86e40b23a5857e1f502cba7c5f09",
+  secret: process.env.NEXTAUTH_SECRET,
   
   pages: {
     signIn: "/auth/signin",
