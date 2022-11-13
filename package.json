@@ -12,7 +12,7 @@
     "firebase": "^9.12.1",
     "moment": "^2.29.4",
     "next": "latest",
-    "next-auth": "^4.15.0",
+    "next-auth": "^4.1.2",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-moment": "^1.1.2",
